@@ -9,7 +9,7 @@ Setup for a server hosting Docker service based on Ubuntu 22.04 server freshly i
 Change user password
 
 ```shell
-passwd <username>
+passwd ${USER}
 ```
 
 Configure APT sources
@@ -42,13 +42,13 @@ sudo sed -i "s/#StrictModes yes/StrictModes yes/" /etc/ssh/sshd_config
 sudo systemctl restart sshd.service
 ```
 
-Install few prerequisite packages
+Install prerequisite packages
 
 ```shell
-sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get -y install apt-transport-https ca-certificates curl make software-properties-common
 ```
 
-Add the GPG key for the official Docker repository to your system
+Add the GPG key for the official Docker repository
 
 ```shell
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -60,7 +60,7 @@ Add the Docker repository to APT sources
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-Update your existing list of packages again for the addition to be recognized
+Update the packages list
 
 ```shell
 sudo apt-get -y update
@@ -153,9 +153,7 @@ docker-ce:
         500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
 ```
 
-Notice that docker-ce is not installed, but the candidate for installation is from the Docker repository for Ubuntu 22.04 (jammy).
-
-We can now install Docker
+Install Docker-CE
 
 ```shell
 sudo apt-get -y install docker-ce
@@ -193,7 +191,7 @@ Mar 28 20:35:17 vps-0e937262 dockerd[16525]: time="2024-03-28T20:35:17.188967870
 Mar 28 20:35:17 vps-0e937262 systemd[1]: Started Docker Application Container Engine.
 ```
 
-If you want to avoid typing sudo whenever you run the docker command, add your username to the docker group
+Add your username to the docker group
 
 ```shell
 sudo usermod -aG docker ${USER}
@@ -209,6 +207,16 @@ You will be prompted to enter your user’s password to continue. Confirm that y
 
 ```shell
 groups
+```
+
+* * *
+
+#### Automated Setup
+
+If you prefer you can uses our automated script to deploy your server using the following command.
+
+```shell
+cd /tmp/ && wget -O - https://raw.githubusercontent.com/ghostreaver/dockerserver/main/install.sh | bash
 ```
 
 * * *
