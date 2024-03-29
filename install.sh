@@ -1,9 +1,5 @@
 #!/bin/bash
 
-## Change user password
-## --------------------
-passwd ${USER}
-
 ## Configure APT sources
 ## ---------------------
 sudo add-apt-repository -y main && sudo add-apt-repository -y restricted && sudo add-apt-repository -y universe && sudo add-apt-repository -y multiverse
@@ -51,3 +47,7 @@ sudo systemctl status docker
 ## -------------------------------------
 sudo usermod -aG docker ${USER}
 su - ${USER}
+
+## Reboot server
+## -------------
+sudo reboot now
