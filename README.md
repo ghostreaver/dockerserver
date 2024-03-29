@@ -4,6 +4,16 @@ Setup for a server hosting Docker service on Ubuntu 22.04 server freshly install
 
 * * *
 
+#### Change the user password
+
+Change user password
+
+```shell
+passwd ${USER}
+```
+
+* * *
+
 #### Prepare the environment
 
 Change user password
@@ -207,6 +217,12 @@ You will be prompted to enter your user’s password to continue. Confirm that y
 
 ```shell
 groups
+```
+
+Reboot server
+
+```shell
+sudo reboot now
 ```
 
 * * *
