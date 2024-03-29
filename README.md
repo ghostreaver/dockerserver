@@ -49,7 +49,7 @@ sudo systemctl restart sshd.service
 Install prerequisite packages
 
 ```shell
-sudo apt-get -y install apt-transport-https ca-certificates curl make software-properties-common
+sudo apt-get -y install apt-transport-https ca-certificates curl git make software-properties-common
 ```
 
 Add the GPG key for the official Docker repository
