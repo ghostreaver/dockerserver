@@ -160,7 +160,7 @@ docker-ce:
 Install Docker-CE
 
 ```shell
-sudo apt -y install docker-ce
+sudo apt -y install docker-ce docker-ce-cli docker-compose containerd.io
 ```
 
 Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:
