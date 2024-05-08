@@ -25,9 +25,9 @@ sudo add-apt-repository -y main && sudo add-apt-repository -y restricted && sudo
 Keep system safe
 
 ```shell
-sudo apt-get -y update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade
-sudo apt-get -y remove && sudo apt-get -y autoremove
-sudo apt-get -y clean && sudo apt-get -y autoclean
+sudo apt -y update && sudo apt -y upgrade && sudo apt -y dist-upgrade
+sudo apt -y remove && sudo apt -y autoremove
+sudo apt -y clean && sudo apt -y autoclean
 ```
 
 Disable error reporting
@@ -49,7 +49,7 @@ sudo systemctl restart sshd.service
 Install prerequisite packages
 
 ```shell
-sudo apt-get -y install apt-transport-https ca-certificates curl git make software-properties-common
+sudo apt -y install apt-transport-https ca-certificates curl git make software-properties-common
 ```
 
 Add the GPG key for the official Docker repository
@@ -67,7 +67,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 Update the packages list
 
 ```shell
-sudo apt-get -y update
+sudo apt -y update
 ```
 
 Make sure you are about to install from the Docker repo instead of the default Ubuntu repo
@@ -160,7 +160,7 @@ docker-ce:
 Install Docker-CE
 
 ```shell
-sudo apt-get -y install docker-ce
+sudo apt -y install docker-ce
 ```
 
 Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:

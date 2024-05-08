@@ -6,9 +6,9 @@ sudo add-apt-repository -y main && sudo add-apt-repository -y restricted && sudo
 
 ## Keep system safe
 ## ----------------
-sudo apt-get -y update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade
-sudo apt-get -y remove && sudo apt-get -y autoremove
-sudo apt-get -y clean && sudo apt-get -y autoclean
+sudo apt -y update && sudo apt -y upgrade && sudo apt -y dist-upgrade
+sudo apt -y remove && sudo apt -y autoremove
+sudo apt -y clean && sudo apt -y autoclean
 
 ## Disable error reporting
 ## -----------------------
@@ -24,7 +24,7 @@ sudo systemctl restart sshd.service
 
 ## Install prerequisite packages
 ## -----------------------------
-sudo apt-get -y install apt-transport-https ca-certificates curl git make software-properties-common
+sudo apt -y install apt-transport-https ca-certificates curl git make software-properties-common
 
 ## Add the GPG key for the official Docker repository
 ## --------------------------------------------------
@@ -36,11 +36,11 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 
 ## Update the packages list
 ## ------------------------
-sudo apt-get -y update
+sudo apt -y update
 
 ## Install Docker-CE
 ## -----------------
-sudo apt-get -y install docker-ce
+sudo apt -y install docker-ce docker-ce-cli docker-compose containerd.io
 sudo systemctl status docker
 
 ## Add your username to the docker group
