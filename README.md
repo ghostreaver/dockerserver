@@ -1,6 +1,6 @@
 ## Docker Server
 
-Setup for a server hosting Docker service on Ubuntu 22.04 server freshly installed.
+Setup for a server hosting Docker service on Ubuntu 24.04 server freshly installed.
 
 * * *
 
